@@ -1,39 +1,44 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Global Weather — Red & Black</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://geocoding-api.open-meteo.com" crossorigin>
-  <link rel="preconnect" href="https://api.open-meteo.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify-Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'spotify-green': '#1DB954',
+              'spotify-black': '#191414',
+              'spotify-gray': {
+                100: '#b3b3b3',
+                200: '#535353',
+                300: '#282828',
+                400: '#181818',
+                500: '#121212',
+              }
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body>
-  <header class="app-header">
-    <h1>Global Weather</h1>
-    <p class="subtitle">Search any city worldwide and view current weather</p>
-  </header>
-
-  <main class="app-main">
-    <section class="search-section">
-      <label for="city-input" class="visually-hidden">Search city</label>
-      <div class="search-box">
-        <input id="city-input" type="text" placeholder="Search city (e.g., Paris, Tokyo, Lagos)" autocomplete="off" />
-        <button id="clear-btn" title="Clear" aria-label="Clear">✕</button>
-      </div>
-      <div id="suggestions" class="suggestions" role="listbox" aria-label="City suggestions"></div>
-      <div class="hint">Tip: Press Enter to search top result, or click a suggestion.</div>
-    </section>
-
-    <section id="weather" class="weather" aria-live="polite">
-      <div class="placeholder">Search a city to see its current weather.</div>
-    </section>
-  </main>
-
-  <footer class="app-footer">
-    <span>Powered by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open‑Meteo</a> (no API key required)</span>
-  </footer>
-
-  <script src="app.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

@@ -1,0 +1,5 @@
+{
+  "name": "Spoti-Clone",
+  "description": "A Spotify-like music player application built with React and Tailwind CSS. It features a familiar user interface for browsing and playing a curated list of songs, complete with a persistent player controller.",
+  "requestFramePermissions": []
+}

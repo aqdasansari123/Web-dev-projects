@@ -1,22 +1,20 @@
-# Global Weather (Red & Black)
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-A simple client‑side weather app with a red/black theme. Search any city worldwide and view current weather using Open‑Meteo APIs (no API key required).
+# Run and deploy your AI Studio app
 
-## Features
-- Search any city worldwide (Open‑Meteo Geocoding API)
-- Current temperature in Celsius and Kelvin
-- Relative humidity
-- Wind speed and wind direction
-- Red & black modern theme
+This contains everything you need to run your app locally.
 
-## Run
-Just open `index.html` in your browser. The app calls Open‑Meteo directly from the client.
+View your app in AI Studio: https://ai.studio/apps/drive/1X-0v-6HZ8AgeLoIdsGdjhd7m4_Gqm7an
 
-## How it works
-- On input, the app queries `https://geocoding-api.open-meteo.com/v1/search` for up to 10 matching city names.
-- On selection/Enter, the app queries `https://api.open-meteo.com/v1/forecast` with `current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m`.
-- Wind speed is shown in km/h; temperatures are shown in °C and K (converted client-side).
+## Run Locally
 
-## Notes
-- No API key required. Open‑Meteo is free and anonymous.
-- If suggestions do not appear, check your network connection or any browser extensions that may block cross‑origin requests.
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
