@@ -1,26 +1,22 @@
-# Internet Speed Tester (React + Vite)
+# Global Weather (Red & Black)
 
-Features
-- Clean, responsive UI with Tailwind CSS
-- Start/Stop test with progress indicator
-- Download, Upload, and Ping measurements
-- Real-time progress and animated gauge
-- History (last 10), chart via Recharts
-- Dark/Light mode toggle
-- Export results as CSV
+A simple client‑side weather app with a red/black theme. Search any city worldwide and view current weather using Open‑Meteo APIs (no API key required).
 
-## Getting Started
+## Features
+- Search any city worldwide (Open‑Meteo Geocoding API)
+- Current temperature in Celsius and Kelvin
+- Relative humidity
+- Wind speed and wind direction
+- Red & black modern theme
 
-1. Install dependencies
-```
-npm install
-```
+## Run
+Just open `index.html` in your browser. The app calls Open‑Meteo directly from the client.
 
-2. Run dev server
-```
-npm run dev
-```
+## How it works
+- On input, the app queries `https://geocoding-api.open-meteo.com/v1/search` for up to 10 matching city names.
+- On selection/Enter, the app queries `https://api.open-meteo.com/v1/forecast` with `current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m`.
+- Wind speed is shown in km/h; temperatures are shown in °C and K (converted client-side).
 
 ## Notes
-- The test uses Cloudflare speed endpoints (`https://speed.cloudflare.com/__down` and `__up`). If your network blocks these or CORS changes, the test may fail.
-- Results are indicative and can vary by browser, device, and concurrent traffic.
+- No API key required. Open‑Meteo is free and anonymous.
+- If suggestions do not appear, check your network connection or any browser extensions that may block cross‑origin requests.

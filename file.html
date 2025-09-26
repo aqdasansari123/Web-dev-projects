@@ -1,50 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Title</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Aqdas - Frontend Developer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1f1f1f, #000);
+    }
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    header p {
+      font-size: 16px;
+      color: #bbb;
+      margin-bottom: 15px;
+    }
+    header a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #2E86C1;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+    header a:hover {
+      background: #1B4F72;
+    }
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="style.css">
-    </head>
-<img src="" alt="">
-    <body>
-        <header>
-            <!-- place navbar here -->
-        </header>
-        <main>
-            <div class="grid-container">
-    <div class="grid-item"><div id="demoFont" class="mmmm">The biggest event startup of the year.</div></div>
-    <div class="grid-item btn" id="nana" ><button type="button" class="btn btn-outline-warning" >Find out more</button></div>
-</div>
-           
+    section {
+      padding: 35px 20px;
+      max-width: 850px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #2E86C1;
+      border-bottom: 2px solid #2E86C1;
+      display: inline-block;
+      padding-bottom: 3px;
+    }
+    .skills span {
+      display: inline-block;
+      background: #1f1f1f;
+      color: #f5f5f5;
+      padding: 6px 12px;
+      margin: 4px;
+      border-radius: 20px;
+      font-size: 13px;
+      border: 1px solid #2E86C1;
+    }
+    .project {
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #2E86C1;
+    }
+    .project h3 {
+      margin-top: 0;
+      color: #fff;
+      font-size: 18px;
+    }
+    .project a {
+      color: #2E86C1;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .project a:hover {
+      text-decoration: underline;
+    }
+    ul li {
+      margin-bottom: 6px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #111;
+      color: #777;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Muhammad Aqdas</h1>
+    <p>Frontend Developer | Building responsive web apps with React, TypeScript & modern UI</p>
+    <a href="#projects">View My Work</a>
+  </header>
 
-        </main>
-        <footer>
-            <!-- place footer here -->
-        </footer>
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I build web applications using <strong>React.js, TypeScript, HTML, CSS</strong>, focusing on responsive & performant UI. I’m also familiar with Python, Java, and C++ which help me in problem-solving across frontend and backend contexts. I leverage <strong>AI-powered & vibe coding tools</strong> like Cursor, Windsurf, and Google AI Studio to accelerate workflows and deliver production-ready solutions.</p>
+  </section>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+  <section id="skills">
+    <h2>Skills & Tools</h2>
+    <div class="skills">
+      <span>React.js</span><span>TypeScript</span><span>JavaScript</span><span>HTML & CSS</span>
+      <span>Next.js</span><span>Tailwind</span><span>Bootstrap</span>
+      <span>Python</span><span>Java</span><span>C++</span>
+      <span>Git & GitHub</span><span>VS Code</span><span>Cursor</span>
+      <span>Windsurf</span><span>Google AI Studio</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Weather App</h3>
+      <p>React + OpenWeather API, responsive UI.</p>
+      <a href="https://github.com/aqdasansari123/Web-dev-projects">View Code</a>
+    </div>
+    <div class="project">
+      <h3>Music App</h3>
+      <p>Spotify API integration for music search & playback.</p>
+      <a href="https://github.com/aqdasansari123/Web-dev-projects">View Code</a>
+    </div>
+    <div class="project">
+      <h3>Internet Speed Tester</h3>
+      <p>Real-time download & upload speed measurement using React.</p>
+      <a href="https://github.com/aqdasansari123/Web-dev-projects">View Code</a>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p><strong>Freelance Frontend Developer</strong></p>
+    <ul>
+      <li>Delivered multiple web applications using React & TypeScript.</li>
+      <li>Ensured responsive UI and performance across devices.</li>
+      <li>Used GitHub for version control and deployment workflows.</li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <p>Zero to Mastery – <strong>Frontend Web Development Program</strong></p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:aqdasmuhammad758@gmail.com">aqdasmuhammad758@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/aqdasansari123/Web-dev-projects">aqdasansari123</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/muhammad-aqdas11/">muhammad-aqdas11</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Muhammad Aqdas. All Rights Reserved.
+  </footer>
+</body>
 </html>
