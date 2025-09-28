@@ -1,167 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Aqdas - Frontend Developer</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d0d0d;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #1f1f1f, #000);
-    }
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    header p {
-      font-size: 16px;
-      color: #bbb;
-      margin-bottom: 15px;
-    }
-    header a {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #2E86C1;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: 0.3s;
-      font-size: 14px;
-    }
-    header a:hover {
-      background: #1B4F72;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Business</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            margin: 0;
+        }
+        .parent {
+display: grid;
+grid-template-columns: 1fr auto;
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+        html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
 
-    section {
-      padding: 35px 20px;
-      max-width: 850px;
-      margin: auto;
-    }
-    section h2 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #2E86C1;
-      border-bottom: 2px solid #2E86C1;
-      display: inline-block;
-      padding-bottom: 3px;
-    }
-    .skills span {
-      display: inline-block;
-      background: #1f1f1f;
-      color: #f5f5f5;
-      padding: 6px 12px;
-      margin: 4px;
-      border-radius: 20px;
-      font-size: 13px;
-      border: 1px solid #2E86C1;
-    }
-    .project {
-      background: #1a1a1a;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      border: 1px solid #2E86C1;
-    }
-    .project h3 {
-      margin-top: 0;
-      color: #fff;
-      font-size: 18px;
-    }
-    .project a {
-      color: #2E86C1;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .project a:hover {
-      text-decoration: underline;
-    }
-    ul li {
-      margin-bottom: 6px;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #111;
-      color: #777;
-      font-size: 13px;
-    }
-  </style>
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .logo-text {
+            font-size: 16px;
+            line-height: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .wow{
+          margin-left: 30px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+        .search-box input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-box button {
+            padding: 10px 12px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .main-nav {
+            background-color: black;
+            margin-bottom: 0;
+        }
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .main-nav li {
+            margin: 0 20px;
+            position: relative;
+        }
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .dropdown-menu {
+            display: none !important;
+            flex-direction: column;
+            position: absolute;
+            background-color: #3f704d;
+            list-style: none;
+            padding: 10px;
+            border-radius: 4px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+        }
+        .dropdown-menu.show {
+            display: flex !important;
+        }
+        .dropdown-menu li {
+            padding: 5px 10px;
+        }
+        .dropdown-menu li:hover {
+            background-color: yellow;
+        }
+        .dropdown-menu li:hover a {
+            color: black;
+        }
+        .follow-us-block {
+            background-color: rgb(56, 142, 196);
+            color: white;
+            padding: 20px;
+            height: 250px;
+            width: 150px;
+        }
+        
+        .follow-us-block h3 {
+            margin-bottom: 20px;
+        }
+        .follow-us-block h4 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        /* Footer layout: let Bootstrap control visuals; make page fill viewport and footer stick to bottom */
+        html, body { height: 100%; }
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        /* The footer is wrapped in the last container-fluid; push it to bottom */
+        body > .container-fluid:last-of-type { margin-top: auto; padding-top: 24px; }
+        /* Let Bootstrap control footer colors (no forced overrides) */
+        /* Move footer sections slightly down and make text bold */
+        footer .col { margin-top: 20px; }
+        footer h5,
+        footer h6,
+        footer .nav-link,
+        footer p { font-weight: 700 !important; }
+        /* Optional: tidy list spacing inside footer to keep it compact */
+        footer .nav.flex-column .nav-item { margin-bottom: 6px; }
+        /* Inline brand text next to logo, compact, with white badge background */
+        footer .brand-inline { display: inline-flex; gap: 4px; background-color: #fff; padding: 2px 6px; border-radius: 4px; }
+        footer .brand-inline, footer .brand-inline * { color: #000 !important; }
+        /* Make footer text white on dark background (brand-inline overrides to black above) */
+        footer.bg-dark, footer.bg-dark a, footer.bg-dark .nav-link, footer.bg-dark h6, footer.bg-dark p, footer.bg-dark li { color: #fff !important; }
+        footer .brand-word { display: inline; font-weight: 700; margin: 0; padding: 0; white-space: nowrap; }
+        /* Responsive tweaks */
+        @media (max-width: 576px) {
+            .header { flex-direction: column; gap: 12px; align-items: flex-start; }
+            .main-nav ul { flex-wrap: wrap; padding: 10px 12px; }
+            .main-nav li { margin: 6px 12px; }
+            .logo svg { width: 26px; height: 26px; }
+            .logo-text { font-size: 14px; }
+            /* Override fixed widths and margins in main content for small screens */
+            .main-content p { width: 100% !important; margin-left: 12px !important; margin-right: 12px !important; }
+            .main-content .wow { margin-left: 12px !important; }
+            .parent { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Muhammad Aqdas</h1>
-    <p>Frontend Developer | Building responsive web apps with React, TypeScript & modern UI</p>
-    <a href="#projects">View My Work</a>
-  </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I build web applications using <strong>React.js, TypeScript, HTML, CSS</strong>, focusing on responsive & performant UI. I’m also familiar with Python, Java, and C++ which help me in problem-solving across frontend and backend contexts. I leverage <strong>AI-powered & vibe coding tools</strong> like Cursor, Windsurf, and Google AI Studio to accelerate workflows and deliver production-ready solutions.</p>
-  </section>
-
-  <section id="skills">
-    <h2>Skills & Tools</h2>
-    <div class="skills">
-      <span>React.js</span><span>TypeScript</span><span>JavaScript</span><span>HTML & CSS</span>
-      <span>Next.js</span><span>Tailwind</span><span>Bootstrap</span>
-      <span>Python</span><span>Java</span><span>C++</span>
-      <span>Git & GitHub</span><span>VS Code</span><span>Cursor</span>
-      <span>Windsurf</span><span>Google AI Studio</span>
+    <div class="header">
+        <div class="logo">
+            <svg viewBox="0 0 100 100">
+                <rect x="20" y="10" width="60" height="80" rx="10" ry="10" fill="#f0f0f0" />
+                <rect x="30" y="0" width="40" height="20" fill="#d0d0d0" />
+            </svg>
+            <div class="logo-text">
+                <span>cool</span> 
+                <span>Buisness</span>
+            </div>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
     </div>
-  </section>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="file.html">Home</a></li>
+            <li class="services-item">
+                <a href="#">Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">service1</a></li>
+                    <li><a href="#">service2</a></li>
+                    <li><a href="#">service3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+<div class="parent">
+<div class="main-content"><h2 class="wow area" style="margin-top: 40px;">Main Heading for this site</h2>
+<h3 style="color:#ccc;" class="wow">Sub Heading for this site</h3>
+<p style="width: 1000px; margin-left: 30px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum minus officiis laborum iusto, quae cumque architecto nihil quidem est error beatae doloremque rerum repellat natus inventore impedit debitis hic! Impedit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero illum ab, voluptatum aliquam doloremque unde, pariatur asperiores earum reprehenderit, iusto eligendi laudantium at. Voluptatem nam laboriosam sed ea cupiditate vel?</p>
+<p style="width: 1000px; margin-left: 30px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatum, at dicta corporis asperiores voluptate placeat quo recusandae numquam porro mollitia illo tenetur dolor commodi repudiandae sed, sequi odit earum.</p>
+<p style="width: 1000px; margin-left: 30px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eveniet magnam maiores incidunt quisquam consectetur iure unde commodi, rerum alias nobis vero aperiam laboriosam minima. Ut, tenetur! Necessitatibus, consectetur similique!</p></div>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Weather App</h3>
-      <p>React + OpenWeather API, responsive UI.</p>
-      <a href="https://github.com/aqdasansari123/Web-dev-projects">View Code</a>
+<!-- Follow-us section removed -->
+</div>
+</div>
+
+<!-- Footer inserted -->
+<div class="container-fluid">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3 border-top bg-dark text-white mt-auto">
+    <div class="col mb-2">
+      <a href="/" class="d-flex align-items-center mb-2 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
+        <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="brand-inline d-flex flex-column align-items-start">
+          <span class="brand-word" style="font-weight: normal;">cool</span>
+          <span class="brand-word" style="font-weight: bold;">Buisness</span>
+        </span>
+      </a>
+      <p class="mb-1 mt-3 fw-bold text-white" style="margin-left: 44px;">Adress</p>
+      <p class="mb-2 text-white" style="margin-left: 44px;">Pirmahal-Punjab (Pakistan)</p>
     </div>
-    <div class="project">
-      <h3>Music App</h3>
-      <p>Spotify API integration for music search & playback.</p>
-      <a href="https://github.com/aqdasansari123/Web-dev-projects">View Code</a>
+
+    <div class="col mb-2"></div>
+
+    <div class="col mb-2">
+      <h6>Section</h6>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+      </ul>
     </div>
-    <div class="project">
-      <h3>Internet Speed Tester</h3>
-      <p>Real-time download & upload speed measurement using React.</p>
-      <a href="https://github.com/aqdasansari123/Web-dev-projects">View Code</a>
+
+    <div class="col mb-2">
+      <h6>Section</h6>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+      </ul>
     </div>
-  </section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <p><strong>Freelance Frontend Developer</strong></p>
-    <ul>
-      <li>Delivered multiple web applications using React & TypeScript.</li>
-      <li>Ensured responsive UI and performance across devices.</li>
-      <li>Used GitHub for version control and deployment workflows.</li>
-    </ul>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <p>Zero to Mastery – <strong>Frontend Web Development Program</strong></p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:aqdasmuhammad758@gmail.com">aqdasmuhammad758@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/aqdasansari123/Web-dev-projects">aqdasansari123</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/muhammad-aqdas11/">muhammad-aqdas11</a></p>
-  </section>
-
-  <footer>
-    &copy; 2025 Muhammad Aqdas. All Rights Reserved.
+    <div class="col mb-2">
+      <h6>Section</h6>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+      </ul>
+    </div>
   </footer>
+</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const servicesLink = document.querySelector('.services-item > a');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            servicesLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            });
+
+            document.addEventListener('click', function () {
+                if (dropdownMenu.classList.contains('show')) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
