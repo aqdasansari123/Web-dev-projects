@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --gap: 14px; }
+    * { box-sizing: border-box; }
+    body { font-family: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:#f6f7fb; }
+
+    .app-header { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid #e7e7e7; }
+    .app-header .container { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; }
+
+    .notes-toolbar { display:flex; gap: 8px; align-items:center; }
+    .notes-toolbar .btn { white-space: nowrap; }
+
+    .board { padding: 16px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--gap);
+      align-items: start;
+    }
+
+    .note {
+      background: #fff;
+      border: 1px solid #e4e6eb;
+      border-radius: 10px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      padding: 10px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .15s ease, transform .05s ease;
+    }
+    .note:focus-within { box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+
+    .note-header { display:flex; align-items:center; justify-content: space-between; gap:8px; margin-bottom: 6px; }
+    .note-title { font-weight: 600; font-size: 14px; outline: none; min-height: 22px; }
+    .note-actions { display:flex; gap:6px; }
+
+    .note-content { outline: none; white-space: pre-wrap; min-height: 60px; color:#333; }
+
+    .empty-state { text-align:center; color:#777; padding: 28px 10px; }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <h1 class="h5 m-0">Notes</h1>
+      <div class="notes-toolbar">
+        <button id="addNoteBtn" class="btn btn-dark btn-sm">Add Note</button>
+        <button id="clearAllBtn" class="btn btn-outline-danger btn-sm">Clear All</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="board container">
+    <div id="grid" class="grid"></div>
+    <div id="empty" class="empty-state d-none">No notes yet. Click "Add Note" to create one.</div>
+  </main>
+
+  <script>
+    (function(){
+      const grid = document.getElementById('grid');
+      const empty = document.getElementById('empty');
+      const addBtn = document.getElementById('addNoteBtn');
+      const clearBtn = document.getElementById('clearAllBtn');
+
+      const STORAGE_KEY = 'notes.v1';
+
+      function uid(){ return Math.random().toString(36).slice(2, 9); }
+
+      function load(){
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+        catch { return []; }
+      }
+      function save(notes){ localStorage.setItem(STORAGE_KEY, JSON.stringify(notes)); }
+
+      function render(){
+        const notes = load();
+        grid.innerHTML = '';
+        if(!notes.length){ empty.classList.remove('d-none'); return; }
+        empty.classList.add('d-none');
+        for(const n of notes){ grid.appendChild(noteEl(n)); }
+      }
+
+      function noteEl(n){
+        const card = document.createElement('div');
+        card.className = 'note';
+        card.dataset.id = n.id;
+
+        const header = document.createElement('div');
+        header.className = 'note-header';
+        const title = document.createElement('div');
+        title.className = 'note-title';
+        title.contentEditable = 'true';
+        title.textContent = n.title || 'Untitled';
+
+        const actions = document.createElement('div');
+        actions.className = 'note-actions';
+        const del = document.createElement('button');
+        del.className = 'btn btn-sm btn-outline-secondary';
+        del.textContent = 'Delete';
+        actions.appendChild(del);
+
+        header.appendChild(title);
+        header.appendChild(actions);
+
+        const content = document.createElement('div');
+        content.className = 'note-content';
+        content.contentEditable = 'true';
+        content.textContent = n.content || '';
+
+        // Events
+        title.addEventListener('input', () => update(n.id, { title: title.textContent }));
+        content.addEventListener('input', () => update(n.id, { content: content.textContent }));
+        del.addEventListener('click', () => remove(n.id));
+
+        card.appendChild(header);
+        card.appendChild(content);
+        return card;
+      }
+
+      function update(id, patch){
+        const notes = load();
+        const idx = notes.findIndex(x => x.id === id);
+        if(idx === -1) return;
+        notes[idx] = { ...notes[idx], ...patch, updatedAt: Date.now() };
+        save(notes);
+      }
+
+      function add(){
+        const notes = load();
+        const n = { id: uid(), title: 'Untitled', content: '', createdAt: Date.now(), updatedAt: Date.now() };
+        notes.push(n);
+        save(notes);
+        render();
+      }
+
+      function remove(id){
+        let notes = load();
+        notes = notes.filter(x => x.id !== id);
+        save(notes);
+        render();
+      }
+
+      function clearAll(){
+        if(!confirm('Delete all notes?')) return;
+        localStorage.removeItem(STORAGE_KEY);
+        render();
+      }
+
+      addBtn.addEventListener('click', add);
+      clearBtn.addEventListener('click', clearAll);
+
+      // Keyboard shortcut: Ctrl/Cmd + N to add a note
+      document.addEventListener('keydown', (e) => {
+        if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'n'){
+          e.preventDefault(); add();
+        }
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>
